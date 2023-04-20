@@ -1,0 +1,342 @@
+@import "../scss/variable";
+@import "../scss/mixins";
+
+button {
+  cursor: pointer;
+}
+
+.main-container {
+  color: white;
+  margin: 0rem 11.5rem;
+  @include respond(tab-port) {
+    margin: 0rem 2.5rem;
+  }
+}
+
+#active {
+  border-bottom: 2px solid $light-blue;
+}
+
+// Navbar
+
+.navbar {
+  &-logo {
+    // margin: ;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    & > h1 {
+      font-size: 3.3rem;
+      font-weight: 600;
+      padding: 3.05rem 0rem;
+      font-family: "Poppins";
+      @include respond(tab-port) {
+        padding-bottom: 2rem;
+      }
+      & > span {
+        color: $light-blue;
+      }
+    }
+    &-menu {
+      display: none;
+      @include respond(tab-port) {
+        display: block;
+      }
+      & > * {
+        font-size: 3.2rem;
+        cursor: pointer;
+      }
+    }
+  }
+
+  &-container {
+    border-top: 1px solid #16191f;
+    border-bottom: 1px solid #16191f;
+    @include respond(tab-port) {
+      display: none;
+    }
+
+    & > button {
+      padding: 1.4rem 2.9rem;
+      font-size: 1.4rem;
+      background: none;
+      border: none;
+      color: $secondry;
+    }
+  }
+}
+
+// Mobile
+
+.mobile-container {
+  border: 1px solid #16191f;
+  background-color: #0c0d0f;
+  border-radius: 0.8rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 1rem;
+  padding-bottom: 4rem;
+  position: absolute;
+  width: 100%;
+  top: 8rem;
+  animation-name: mymove;
+  animation-duration: 0.6s;
+
+  & > button {
+    background: none;
+    border: none;
+    color: white;
+  }
+  &-cross {
+    & > * {
+      font-size: 3.2rem;
+      position: absolute;
+      right: 2rem;
+      margin-top: -4.5rem;
+      cursor: pointer;
+    }
+  }
+  & > * {
+    &:not(:last-child) {
+      margin-bottom: 3.5rem;
+    }
+  }
+}
+
+.mobile {
+  width: 80%;
+  margin: auto;
+  position: relative;
+  display: none;
+  @include respond(tab-port) {
+    display: block;
+  }
+}
+// overlay
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 10;
+  background: rgba(64, 62, 62, 0.75);
+  display: none;
+
+  @include respond(tab-port) {
+    display: block;
+  }
+}
+
+.homepage-title {
+  padding: 3.1rem 0rem;
+  @include respond(tab-port) {
+    padding-top: 0rem;
+  }
+  & > p {
+    color: $secondry;
+    font-size: 1.3rem;
+    & > span {
+      color: $light-blue;
+      cursor: pointer;
+    }
+  }
+}
+
+// ExpireSection
+.expiresection {
+  &-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2.3rem;
+    border: 1px solid #16191f;
+    border-radius: 0.8rem;
+    background-color: #0c0d0f;
+    @include respond(phone) {
+      flex-direction: column;
+      align-items: baseline;
+    }
+    &-left {
+      @include respond(phone) {
+        margin-top: 1.7rem;
+        text-align: right;
+        width: 100%;
+      }
+      & > button {
+        border: 1px solid #16191f;
+        background-color: #0c0d0f;
+        padding: 1.6rem 2.4rem;
+        font-size: 1.4rem;
+        color: white;
+        border-radius: 0.8rem;
+        cursor: pointer;
+        // color: ;
+      }
+    }
+  }
+}
+
+.expire-content {
+  display: flex;
+  align-items: center;
+
+  & > img {
+    height: 5rem;
+    width: 5rem;
+  }
+  &-headings {
+    margin-left: 1.6rem;
+    & > p {
+      color: $secondry;
+      font-size: 1.2rem;
+      margin-bottom: 0.4rem;
+    }
+    & > h3 {
+      font-size: 2rem;
+      color: white;
+      font-weight: 400;
+    }
+  }
+}
+
+// Bottom Section
+
+.bottom-section {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3.2rem;
+  margin-bottom: 4rem;
+  @include respond(tab-port) {
+    flex-direction: column;
+  }
+  &-left {
+    width: 50%;
+    margin-right: 3.4rem;
+    @include respond(tab-port) {
+      width: 100%;
+    }
+  }
+  &-right {
+    width: 50%;
+    border: 1px solid #16191f;
+    background-color: #0c0d0f;
+    border-radius: 0.8rem;
+    padding-top: 3.2rem;
+    @include respond(tab-port) {
+      width: 100%;
+    }
+    // padding-left: 3.2rem;
+    // padding-right: 3.2rem;
+    & > h3 {
+      font-size: 1.8rem;
+      font-weight: 300;
+      text-align: center;
+    }
+    &-image {
+      width: 384px;
+      margin: auto;
+      margin-top: 1rem;
+      @include respond(phone) {
+        width: 80%;
+        margin: auto;
+      }
+      & > img {
+        margin: auto;
+        width: 384px;
+        height: 455px;
+        @include respond(phone) {
+          width: 100%;
+        }
+      }
+    }
+
+    &-content {
+      background: rgba(255, 255, 255, 0.02);
+      backdrop-filter: blur(64px);
+      padding: 3.2rem;
+      border-radius: 0px 0px 12px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      margin-top: -16rem;
+      & > p {
+        text-align: center;
+        line-height: 1.8rem;
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+      }
+      & > button {
+        padding: 1.6rem 2.4rem;
+        font-size: 1.4rem;
+        background: #0c0d0f;
+        border: 1px solid #16191f;
+        border-radius: 8px;
+        color: white;
+      }
+    }
+  }
+}
+
+// DropDown
+
+.dropdown-top {
+  & > * {
+    &:first-child {
+      color: white;
+      font-size: 1.2rem;
+    }
+    &:last-child {
+      color: $light-blue;
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.dropdown {
+  border: 1px solid #16191f;
+  border-radius: 0.8rem;
+  padding: 1.6rem;
+  color: $secondry;
+  margin: 1.6rem 0rem;
+  cursor: pointer;
+  & > p {
+    font-size: 1.3rem;
+  }
+  & > * {
+    &:last-child {
+      font-size: 2rem;
+    }
+  }
+}
+
+.update-setting-btn {
+  margin-top: 30rem;
+  @include respond(phone) {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+  & > button {
+    font-size: 1.4rem;
+    background-color: $blue;
+    border-radius: 0.8rem;
+    border: none;
+    padding: 1.6rem 2.4rem;
+    color: white;
+  }
+}
+
+@keyframes mymove {
+  0% {
+    top: -1000px;
+    z-index: 10;
+  }
+  100% {
+    top: 8rem;
+    z-index: 50;
+  }
+}
